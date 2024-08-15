@@ -21,10 +21,10 @@ data = pd.read_json("data/train.json")
 #print(data.isnull().sum())
 #print(data.sentiment.value_counts())
 data['sentiment'] = [s.replace('positive', '1') for s in data['sentiment']]
-data['sentiment'] = [s.replace('negative', '-1') for s in data['sentiment']]
-data['sentiment'] = [s.replace('neutral', '0') for s in data['sentiment']]
+data['sentiment'] = [s.replace('negative', '0') for s in data['sentiment']]
+data = data.drop(data[data['sentiment'] == 'neutral'].index)
 data['sentiment'] = [int(s) for s in data['sentiment']]
-#print(data.sentiment.value_counts())
+print(data.sentiment.value_counts())
 stop_words = stopwords.words('russian')
 print(stop_words)
 

@@ -28,7 +28,7 @@ with open(
 ) as f:
     model = joblib.load(f)
 
-def text_cleaning(text, remove_stop_words=True):
+def text_cleaning(text, remove_stop_words=True, lemmatize_words=True):
     # Clean the text, with the option to remove stop_words and to lemmatize word
 
     # Clean the text

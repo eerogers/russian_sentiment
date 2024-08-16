@@ -6,7 +6,7 @@ from nltk.tokenize import word_tokenize
 
 import nltk
 from nltk.corpus import stopwords
-#from nltk.stem import WordNetLemmatizer
+from nltk.stem import WordNetLemmatizer
 import re  # regular expression
 
 import os
@@ -50,11 +50,11 @@ def text_cleaning(text, remove_stop_words=True):
         text = " ".join(text)
 
     # Optionally, shorten words to their stems
-    #if lemmatize_words:
-    #    text = text.split()
-    #    lemmatizer = WordNetLemmatizer()
-    #    lemmatized_words = [lemmatizer.lemmatize(word) for word in text]
-    #    text = " ".join(lemmatized_words)
+    if lemmatize_words:
+        text = text.split()
+        lemmatizer = WordNetLemmatizer()
+        lemmatized_words = [lemmatizer.lemmatize(word) for word in text]
+        text = " ".join(lemmatized_words)
     # Return a list of words
     return text
 
